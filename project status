@@ -1,0 +1,64 @@
+Date: 2026-01-12
+Project: Self-Service DevOps Platform
+Phase: Phase 1 – Manual Deployment
+
+🧩 Objective for the day
+
+Get the Next.js e-commerce application running locally and inside Docker as the foundation for cloud deployment.
+
+✅ What I completed today
+
+Selected a real production-grade app (Next.js e-commerce with Stripe & Sanity)
+
+Installed and fixed project dependencies
+
+Fixed npm peer-dependency conflicts
+
+Pinned correct versions of:
+
+React (18.2.0)
+
+React-DOM (18.2.0)
+
+Next.js (13.x)
+
+Successfully ran the app locally (npm run dev)
+
+Created a production-grade multi-stage Dockerfile
+
+Built a Docker image using Node 20
+
+Ran the app successfully inside a Docker container
+
+💥 What broke
+Problem	What happened
+npm install failed	Peer-dependency conflicts between Sanity packages
+Next.js app crashed	New React & Next versions were incompatible with the old project
+Docker build failed	Node 18 did not meet Next.js version requirement
+Dev server vs prod	npm run dev works locally but cannot be used in containers
+🔧 How I fixed it
+Problem	Fix
+npm dependency conflict	Used npm install --legacy-peer-deps
+React & Next mismatch	Forced React 18 and Next 13
+Docker build error	Switched base image to node:20-alpine
+Dev vs prod mismatch	Used npm run build + npm start in Docker
+🧠 What I learned today
+
+Modern JavaScript apps break easily when versions are not pinned
+
+npm installs newer incompatible versions by default
+
+Containers freeze runtime versions and prevent CI/CD failures
+
+Next.js must be built before running in production
+
+Docker multi-stage builds produce smaller, cleaner images
+
+🧱 Current State of Project
+
+The application is now:
+
+✔ Running locally
+✔ Running inside Docker
+❌ Not yet in Azure
+❌ Not yet on Kubernetes
