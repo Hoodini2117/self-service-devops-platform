@@ -64,17 +64,17 @@ Convert this into a true self-service system
 ❌ Not yet in Azure
 ❌ Not yet on Kubernetes
 
-Day 2 — Cloud & Kubernetes (Real DevOps)
+📅 Day 2 — Cloud, Kubernetes & Public Internet
 
 (Today)
 
 🎯 Goal
 
-Turn that Docker app into a real cloud-hosted production service.
+Turn that Dockerized app into a real, internet-accessible production system.
 
 ☁️ Infrastructure (Terraform)
 
-You built Azure infrastructure using Terraform:
+You destroyed and rebuilt everything cleanly using Terraform:
 
 Azure Resource Group
 
@@ -82,98 +82,88 @@ Azure Container Registry (ACR)
 
 Azure Kubernetes Service (AKS)
 
-You debugged:
+You fixed:
 
 Empty Terraform state
 
-Wrong Azure subscription
+Missing subscription ID
 
-Azure provider registration
+Provider authentication
 
-Invalid VM size for your subscription
+Azure VM size quota issues
 
-You successfully created:
+You proved:
 
-A real Kubernetes cluster using Infrastructure as Code
+Infrastructure is 100% reproducible from code.
 
 🐳 Containers → Cloud
 
 You:
 
-Logged Docker into Azure
+Rebuilt the Docker image
 
-Tagged and pushed your image to ACR
+Tagged it
 
-Learned:
+Pushed it to Azure Container Registry
 
-Cloud cannot see your laptop
+Verified the image exists in ACR
 
-Images must live in registries
+This created:
+
+A versioned, cloud-hosted runtime artifact.
 
 ☸️ Kubernetes
 
-You created:
+You recreated the full runtime stack:
 
 Namespace (ecommerce)
 
-Deployment (2 replicas)
+Deployment (replicas of your app)
 
-Service
+Service (stable internal networking)
 
 NGINX Ingress Controller
 
-Ingress
+Ingress (public routing)
 
 You connected:
 
-Azure Load Balancer → NGINX → Service → Pods
+Azure Load Balancer → NGINX → Service → Pods → Next.js
+
+🌍 Live Public Access
+
+Azure assigned a real public IP:
+
+132.220.145.224
 
 
-You now have a real public IP:
+From your home network you opened:
 
-50.85.7.129
-
-
-This is production-grade cloud networking.
-
-🧠 What broke today
-Problem	What it taught you
-Terraform said 0 resources	State ≠ Cloud
-AKS not visible	Subscription mismatch
-VM size rejected	Azure quotas & regions
-ACR empty	You must push images
-App unreachable	Containers binding to localhost
-Next.js blocking	Reverse proxy security
-Ingress weirdness	Real production routing rules
-Campus Wi-Fi blocks IP	Real world network security
-🧩 What you now have
-
-You have built:
-
-Any app
-   → Docker
-   → Azure Container Registry
-   → Azure Kubernetes Service
-   → NGINX Ingress
-   → Public Internet
+http://132.220.145.224
 
 
-This is the core engine of your future:
+And the ecommerce website loaded successfully.
 
-Self-Service DevOps Platform
+This proves:
 
-🧭 Where you stopped
+Your DevOps platform works end-to-end on the public internet.
 
-The platform works.
-The app runs.
-The only remaining blocker is external network filtering (college Wi-Fi).
+🧠 What broke & what you fixed today
+Issue	What it taught you
+Terraform showed 0 resources	Terraform state vs cloud
+AKS not visible	Subscription binding
+VM size rejected	Azure region quotas
+ACR empty	Cloud images must be pushed
+Pods stuck creating	Registry permissions
+Ingress not working on campus Wi-Fi	Real-world network filtering
+Site works on home network	Cloud platform is correct
+🧩 What you now own
 
-Next session you will:
+You have built a real application platform:
 
-Test from another network
-
-Add Domain + HTTPS
-
-Add CI/CD
-
-
+Any App
+  → Docker
+  → Azure Container Registry
+  → Azure Kubernetes Service
+  → NGINX Ingress
+  → Public URL
