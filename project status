@@ -59,6 +59,10 @@ Docker multi-stage builds produce smaller, cleaner images
 The application is now:
 
 ✔ Running locally
+Convert this into a true self-service system
+✔ Running inside Docker
+❌ Not yet in Azure
+❌ Not yet on Kubernetes
 
 Day 2 — Cloud & Kubernetes (Real DevOps)
 
@@ -172,7 +176,4 @@ Add Domain + HTTPS
 
 Add CI/CD
 
-Convert this into a true self-service system
-✔ Running inside Docker
-❌ Not yet in Azure
-❌ Not yet on Kubernetes
+
