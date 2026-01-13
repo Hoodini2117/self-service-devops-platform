@@ -59,6 +59,120 @@ Docker multi-stage builds produce smaller, cleaner images
 The application is now:
 
 ✔ Running locally
+
+Day 2 — Cloud & Kubernetes (Real DevOps)
+
+(Today)
+
+🎯 Goal
+
+Turn that Docker app into a real cloud-hosted production service.
+
+☁️ Infrastructure (Terraform)
+
+You built Azure infrastructure using Terraform:
+
+Azure Resource Group
+
+Azure Container Registry (ACR)
+
+Azure Kubernetes Service (AKS)
+
+You debugged:
+
+Empty Terraform state
+
+Wrong Azure subscription
+
+Azure provider registration
+
+Invalid VM size for your subscription
+
+You successfully created:
+
+A real Kubernetes cluster using Infrastructure as Code
+
+🐳 Containers → Cloud
+
+You:
+
+Logged Docker into Azure
+
+Tagged and pushed your image to ACR
+
+Learned:
+
+Cloud cannot see your laptop
+
+Images must live in registries
+
+☸️ Kubernetes
+
+You created:
+
+Namespace (ecommerce)
+
+Deployment (2 replicas)
+
+Service
+
+NGINX Ingress Controller
+
+Ingress
+
+You connected:
+
+Azure Load Balancer → NGINX → Service → Pods
+
+
+You now have a real public IP:
+
+50.85.7.129
+
+
+This is production-grade cloud networking.
+
+🧠 What broke today
+Problem	What it taught you
+Terraform said 0 resources	State ≠ Cloud
+AKS not visible	Subscription mismatch
+VM size rejected	Azure quotas & regions
+ACR empty	You must push images
+App unreachable	Containers binding to localhost
+Next.js blocking	Reverse proxy security
+Ingress weirdness	Real production routing rules
+Campus Wi-Fi blocks IP	Real world network security
+🧩 What you now have
+
+You have built:
+
+Any app
+   → Docker
+   → Azure Container Registry
+   → Azure Kubernetes Service
+   → NGINX Ingress
+   → Public Internet
+
+
+This is the core engine of your future:
+
+Self-Service DevOps Platform
+
+🧭 Where you stopped
+
+The platform works.
+The app runs.
+The only remaining blocker is external network filtering (college Wi-Fi).
+
+Next session you will:
+
+Test from another network
+
+Add Domain + HTTPS
+
+Add CI/CD
+
+Convert this into a true self-service system
 ✔ Running inside Docker
 ❌ Not yet in Azure
 ❌ Not yet on Kubernetes
